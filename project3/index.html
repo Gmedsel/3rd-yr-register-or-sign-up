@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .login-box {
+      width: 80%;
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .input-container {
+      position: relative;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .input-container img {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+    }
+    a {
+        text-decoration:none ;
+    }
+
+    input, select {
+      padding: 10px 40px; /* Adjust padding to accommodate the icon */
+      width: calc(100% - 40px); /* Adjust width as needed */
+      box-sizing: border-box; /* Include padding in the width calculation */
+      border: none; /* Remove default input border */
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    /* Media query for desktop-sized screens */
+    @media (min-width: 768px) {
+      .login-box {
+        width: 50%;
+      }
+    }
+  </style>
+  <title>Login Form</title>
+</head>
+<body>
+  <div class="login-box">
+    <h1>Login Form</h1>
+
+    <form action="register.php" method="post">
+      <div class="input-container">
+        <img src="name.png" alt="User Icon">
+        <input type="text" name="name" id="name" placeholder="Name" required>
+      </div>
+
+      <div class="input-container">
+        <img src="age.png" alt="Age Icon">
+        <input type="number" name="age" id="age" placeholder="Age" required>
+      </div>
+
+      <div class="input-container">
+        <img src="home.png" alt="Address Icon">
+        <input type="text" name="address" id="address" placeholder="Address" required>
+      </div>
+
+      <div class="input-container">
+        <img src="email.png" alt="Email Icon">
+        <input type="email" name="email" id="email" placeholder="Email" required>
+      </div>
+
+      <div class="input-container">
+        <img src="gender.png" alt="Gender Icon">
+        <select name="gender" id="gender" required>
+          <option value="" disabled selected>Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="input-container">
+        <img src="pass.png" alt="Password Icon">
+        <input type="password" name="password"  id="password" placeholder="Password" required>
+      </div>
+
+      <label for="loginOption">
+        Already have an account? 
+        
+       <a href="#">Login</a>
+      </label>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+   function submitForm(event) {
+      event.preventDefault(); // Prevents the form from submitting
+
+      // You can retrieve the form data here and perform further actions
+      var name = document.getElementById('name').value;
+      var age = document.getElementById('age').value;
+      var address = document.getElementById('address').value;
+      var email = document.getElementById('email').value;
+      var gender = document.getElementById('gender').value;
+      var password = document.getElementById('password').value;
+      var loginOption = document.getElementById('loginOption').checked;
+
+      // For demonstration purposes, you can display the collected data
+      if (loginOption) {
+        alert(`Login Information:\nEmail: ${email}\nPassword: ${password}`);
+      } else {
+        alert(`User Information:\nName: ${name}\nAge: ${age}\nAddress: ${address}\nEmail: ${email}\nGender: ${gender}\nPassword: ${password}`);
+      }
+    }
+  </script>
+</body>
+</html>
+
